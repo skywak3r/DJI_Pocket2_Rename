@@ -11,19 +11,25 @@ def renamePocket2(path):
         file_full_path = os.path.join(path,file)
         raw_file_cTime = os.path.getmtime(file_full_path)
         file_cTime = datetime.datetime.fromtimestamp(raw_file_cTime)
+
+
         if os.path.isdir(file_full_path):
             continue
         name = "DJI_"
         name += str(file_cTime.date())
-        name += "-"
+        name += "_"
         name += str(file_cTime.time().hour)
-        name += "-"
+        name += "_"
         name += str(file_cTime.time().minute)
-        name += "-"
+        name += "_"
         name += str(file_cTime.time().second)
         name = name.replace("-","_")
-        name += ".mp4"
-        # print(name)
+        name += "."
+        name += file.split(".")[1]
+        # name += str(file[-4:])
+        # print(file.split(".")[1])
+        print(name)
+
 
         os.rename(file_full_path,os.path.join(path,name))
 
