@@ -28,7 +28,7 @@ def renamePocket2(path):
         name += file.split(".")[1]
         # name += str(file[-4:])
         # print(file.split(".")[1])
-        print(name)
+        # print(name)
 
 
         os.rename(file_full_path,os.path.join(path,name))
